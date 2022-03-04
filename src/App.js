@@ -23,7 +23,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const link = from([
   errorLink,
   new HttpLink({
-    uri: 'https://api.graphql.jobs/subscribe',
+    uri: 'https://api.graphql.jobs',
   }),
 ]);
 
@@ -37,8 +37,8 @@ function App() {
   return (
     <div className="App">
       <ApolloProvider client={client}>
-        {/* <GetAllJobs /> */}
-        <SimpleForm />
+        <GetAllJobs />
+        {/*<SimpleForm /> */}
       </ApolloProvider>
     </div>
   );
