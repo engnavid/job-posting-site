@@ -10,16 +10,18 @@ export const CREATE_JOB_MUTATION = gql`
         $description: String!,
         $applyUrl: String!
     ){
-        postJob(
-            title: $title,
-            commitmentId: $commitmentId,
-            companyName: $companyName,
-            locationNames: $locationNames,
-            userEmail: $userEmail,
-            description: $description,
-            applyUrl: $applyUrl
-        ){
-            id
+        postJob( 
+            input: {
+                title: $title,
+                commitmentId: $commitmentId,
+                companyName: $companyName,
+                locationNames: $locationNames,
+                userEmail: $userEmail,
+                description: $description,
+                applyUrl: $applyUrl
+            }){
+            id,
+            title
         }
     }
 `;
@@ -30,10 +32,10 @@ export const SUBSCRIBE_MUTATION = gql`
         $email: String!,
         $name: String!,
     ){
-        subscribe(
+        subscribe(input:{
             email: $email,
             name: $name,
-        ){
+        }){
             id
             name
         }
